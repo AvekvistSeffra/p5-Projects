@@ -5,12 +5,20 @@
 
         <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="css/main.css" />
+
+        <script src="vendor/jquery-3.3.1.min.js"></script>
     </head>
     <body>
         <div class="container">
             <header>
                 <h1>p5 Projects</h1>
             </header>
+            <nav>
+                <div class="navbar">
+                    <a href="First Project/index.html">First Project</a>
+                </div>
+                <div class="handle">Main</div>
+            </nav>
             <main>
                 <h3>Hello, my name is Hampus Avekvist</h3>
                 <div class="image-container">
@@ -41,5 +49,11 @@
                 <p>&copy;2018 Hampus Avekvist. <br>All rights reserved. </p>
             </footer>
         </div>
+        
+        <script type="text/javascript">
+            $('.handle').on('click', function() {
+                $('.navbar').toggleClass("show-navbar");
+            });
+        </script>
     </body>
 </html>

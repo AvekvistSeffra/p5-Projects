@@ -1,39 +1,16 @@
-html, body {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    font-family: 'Raleway', sans-serif;
-    background-color: rgba(0, 0, 0, 0.6);
-    color: #f0f0f0;
-}
-
-.container {
-    width: 80%;
-    height: 100%;
-    margin: auto;
-    padding: 0;
-    display: grid;
-    text-align: center;
-    background-color: rgba(0, 0, 0, 0.7);
-}
-
-header {
-    margin: 0;
-    padding: 2%;
-}
-
-main {
-    margin: 0;
-    padding: 0;
-    background-color: rgba(255, 255, 255, 0.1);
-}
-
 #sketch {
-    margin: 2%;
-    padding: 0;
-}
-
-footer {
     margin: 0;
     padding: 0;
+    text-align: center;
+}
+
+.container header h1 {
+    margin: 0;
+    padding: 5% 0 0 0;
+}
+
+.container header p {
+    margin: 0;
+    padding: 0;
+    color: rgba(255, 255, 255, 0.5);
 }
