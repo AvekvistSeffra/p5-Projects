@@ -8,15 +8,26 @@ var el1;
 var el2;
 var el3;
 
+var scale;
+
 function setup() {
+    if(window.innerWidth <= 640) { 
+        scale = 1;
+    } else if(window.innerWidth <= 1280) {
+        scale = 2;
+    } else if(window.innerWidth <= 1920) {
+        scale = 4;
+    }
+    
     canvas = new Canvas(256 * scale, 144 * scale, 255);
+    
     canvas.SetParent('sketch');
     canvas.SetFramerate(60);
     canvas.SetBackgroundColour(255);
 
-    el1 = new Ellipse(width / 2 - 200, height / 2 - 200, 25, 25, [35, 121, 243]);
-    el2 = new Ellipse(12.5 * scale, 12.5 * scale, 25, 25, [60, 230, 22]);
-    el3 = new Ellipse(width / 2 - 400, height / 2, 25, 25, [222, 53, 123]);
+    el1 = new Ellipse(width / 2 - 200 / 4 * scale, height / 2 - 200 / 4 * scale, 25 / 4 * scale, 25 / 4 * scale, [35, 121, 243]);
+    el2 = new Ellipse(50 / 4 * scale, 50 / 4 * scale, 25 / 4 * scale, 25 / 4 * scale, [60, 230, 22]);
+    el3 = new Ellipse(width / 2 - 400 / 4 * scale, height / 2, 25 / 4 * scale, 25 / 4 * scale, [222, 53, 123]);
     
     acceleration1 = new Vector(1, 1);
     acceleration2 = new Vector(1, 1);
