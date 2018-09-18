@@ -24,7 +24,7 @@ html, body {
 header {
     margin: 0;
     padding: 0;
-    font-size: 2em;
+    font-size: 1.8em;
     grid-area: header;
 }
 
@@ -38,7 +38,7 @@ nav {
 nav a {
     margin: 0;
     padding: 0;
-    font-size: 1.5em;
+    font-size: 1.3em;
     color: #f0f0f0;
     text-decoration: none;
     padding: 1%;
@@ -84,7 +84,7 @@ main .image-container p {
 
 footer {
     grid-area: footer;
-    font-size: 1.5em;
+    font-size: 1.2em;
 }
 
 @media screen and (max-width: 960px) {
@@ -101,7 +101,7 @@ footer {
         display: block;
         margin: 0;
         padding: 0;
-        font-size: 2em;
+        font-size: 1.8em;
         color: #f0f0f0;
         text-decoration: none;
         padding: 1%;
@@ -114,7 +114,7 @@ footer {
 
     nav .navbar {
         display: none;
-        font-size: 1.5em;
+        font-size: 1.3em;
     }
 
     nav .show-navbar {
@@ -127,7 +127,7 @@ footer {
     }
 
     main h3 {
-        font-size: 2em;
+        font-size: 1.8em;
     }
 
     main #hampus-image {
@@ -136,6 +136,6 @@ footer {
     }
 
     p {
-        font-size: 1.3em;
+        font-size: 1.2em;
     }
 }
