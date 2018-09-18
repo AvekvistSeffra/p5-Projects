@@ -19,7 +19,7 @@ function setup() {
         scale = 4;
     }
     
-    canvas = new Canvas(256 * scale, 144 * scale, 255);
+    canvas = new Canvas(256 * scale, 144 * scale);
     
     canvas.SetParent('sketch');
     canvas.SetFramerate(60);

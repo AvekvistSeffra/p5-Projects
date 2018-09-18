@@ -1,9 +1,13 @@
-function Canvas(width, height, backgroundColour) {
+function Canvas(width, height) {
     this.width = width;
     this.height = height;
-    this.backgroundColour = backgroundColour;
+    this.backgroundColour = 255;
 
     this.canvas = createCanvas(this.width, this.height);
+    this.canvas.parent('sketch');
+
+    background(this.backgroundColour);
+    frameRate(60);
 
     this.SetFramerate = function(framerate) {
         frameRate(framerate);
