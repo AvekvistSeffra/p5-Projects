@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8" />
 
-        <title>Calculator made in p5.js</title>
+        <title>Conway's Game of Life</title>
 
         <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="../css/main.css" />
@@ -12,11 +12,12 @@
         <script src="../vendor/p5.min.js"></script>
         <script src="../vendor/canvas.js"></script>
     </head>
+
     <body>
         <div class="container">
             <header>
-                <h1>Calculator</h1>
-                <p>A simple, graphical, p5.js calculator </p>
+                <h1>Conway's Game of Life</h1>
+                <p>Based on the rules stated <a href="http://www.conwaylife.com/w/index.php?title=Conway%27s_Game_of_Life">here</a></p>
             </header>
             <nav>
                 <div class="navbar show-navbar">
@@ -33,8 +34,8 @@
             </footer>
         </div>
 
+        <script src="js/source/cell.js"></script>
         <script src="js/source/button.js"></script>
-        <script src="js/source/numberDisplay.js"></script>
         <script src="js/sketch.js"></script>
     </body>
 </html>

@@ -87,7 +87,7 @@ footer {
     font-size: 1.2em;
 }
 
-@media screen and (max-width: 1440px) {
+@media screen and (max-width: 1280px) {
     .container {
         width: 100%;
     }
