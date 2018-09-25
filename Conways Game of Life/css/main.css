@@ -14,3 +14,14 @@
     padding: 0;
     color: rgba(255, 255, 255, 0.5);
 }
+
+p a {
+    color: #bababa;
+    text-decoration: none;
+    font-style: italic;
+}
+
+p a:hover {
+    color: #dadada;
+    text-decoration: underline;
+}

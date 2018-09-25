@@ -165,7 +165,7 @@ function draw() {
     canvas.ClearScreen();
     cursor(ARROW);
 
-    fill(160);
+    fill(100);
     rect(0, m_Height, m_Width, 64);
     playButton.Draw();
     stepButton.Draw();

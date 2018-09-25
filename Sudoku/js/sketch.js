@@ -8,7 +8,6 @@ var testCell, testCell2, testCell3;
 
 var cells;
 
-
 function GeneratePuzzle() {
     cells = [];
 

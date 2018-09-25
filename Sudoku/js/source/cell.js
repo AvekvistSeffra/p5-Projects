@@ -15,13 +15,13 @@ function Cell(x, y, number) {
         noStroke();
         fill(255);
         if(this.baseNumber)
-            fill(200);
+            fill(220);
         if(this.number > 0) {
             rect(x * this.scale + 1, y * this.scale + 1, this.scale - 1, this.scale - 1);
-            fill(32);
+            fill(16);
             textSize(28);
             textAlign(CENTER, CENTER);
-            text(this.number, this.x * this.scale + 1, this.y * this.scale + 1, this.scale - 1, this.scale - 1);
+            text(this.number, this.x * this.scale + 1, this.y * this.scale + 1, this.scale + 4, this.scale + 2);
         }
     }
 }
