@@ -36,19 +36,19 @@ function Multiply() {
 function Divide() {
     numberDisplay.value1 = numberDisplay.text;
     numberDisplay.text = 0;
-    
+
     numberDisplay.operation = 4;
 }
 
 function Equals() {
-    switch(numberDisplay.operation) {
+    switch (numberDisplay.operation) {
         case 1:
             numberDisplay.value2 = Number(numberDisplay.text);
             numberDisplay.text = numberDisplay.value1 + numberDisplay.value2;
             break;
         case 2:
             numberDisplay.value2 = Number(numberDisplay.text);
-            if(numberDisplay.value1 === 0 || numberDisplay.value2 === 0) {
+            if (numberDisplay.value1 === 0 || numberDisplay.value2 === 0) {
                 numberDisplay.text = 0;
                 break;
             }
@@ -57,7 +57,7 @@ function Equals() {
             break;
         case 3:
             numberDisplay.value2 = Number(numberDisplay.text);
-            if(numberDisplay.value2 === 0) {
+            if (numberDisplay.value2 === 0) {
                 numberDisplay.text = "Error: Undefined";
                 break;
             }
@@ -85,7 +85,7 @@ function Clear() {
 
 function AppendValue(x) {
     var value = Number(numberDisplay.text);
-    if(numberDisplay.operationFinished) {
+    if (numberDisplay.operationFinished) {
         numberDisplay.text = value;
         numberDisplay.operationFinished = false;
         return;
@@ -93,14 +93,14 @@ function AppendValue(x) {
 
     value *= 10;
     value += x;
-    if(value < numberDisplay.maxSize)
+    if (value < numberDisplay.maxSize)
         numberDisplay.text = value;
 }
 
 function Resize() {
     width = sketchDiv.offsetWidth - 100;
     height = (width / 48) * 31;
-    
+
     resizeCanvas(width, height);
 
     var widthScaleFactor = width / 240;
@@ -123,12 +123,12 @@ function Resize() {
 
     numberDisplay.width = width;
     numberDisplay.height = 28 * heightScaleFactor;
-    
+
     zeroButton.x = firstColumn;
     zeroButton.y = firstRow;
     zeroButton.width = buttonWidth;
     zeroButton.height = buttonHeight;
-    
+
     clearButton.x = secondColumn;
     clearButton.y = firstRow;
     clearButton.width = buttonWidth;
@@ -138,74 +138,74 @@ function Resize() {
     equalsButton.y = firstRow;
     equalsButton.width = buttonWidth;
     equalsButton.height = buttonHeight;
-    
+
     addButton.x = fourthColumn;
     addButton.y = firstRow;
     addButton.width = buttonWidth;
     addButton.height = buttonHeight;
-    
+
     subtractButton.x = fourthColumn;
     subtractButton.y = secondRow;
     subtractButton.width = buttonWidth;
     subtractButton.height = buttonHeight;
-    
+
     multiplyButton.x = fourthColumn;
     multiplyButton.y = thirdRow;
     multiplyButton.width = buttonWidth;
     multiplyButton.height = buttonHeight;
-    
+
     divideButton.x = fourthColumn;
     divideButton.y = fourthRow;
     divideButton.width = buttonWidth;
     divideButton.height = buttonHeight;
-    
+
     oneButton.x = firstColumn;
     oneButton.y = secondRow;
     oneButton.width = buttonWidth;
     oneButton.height = buttonHeight;
-    
+
     twoButton.x = secondColumn;
     twoButton.y = secondRow;
     twoButton.width = buttonWidth;
     twoButton.height = buttonHeight;
-    
+
     threeButton.x = thirdColumn;
     threeButton.y = secondRow;
     threeButton.width = buttonWidth;
     threeButton.height = buttonHeight;
-    
+
     fourButton.x = firstColumn;
     fourButton.y = thirdRow;
     fourButton.width = buttonWidth;
     fourButton.height = buttonHeight;
-    
+
     fiveButton.x = secondColumn;
     fiveButton.y = thirdRow;
     fiveButton.width = buttonWidth;
     fiveButton.height = buttonHeight;
-    
+
     sixButton.x = thirdColumn;
     sixButton.y = thirdRow;
     sixButton.width = buttonWidth;
     sixButton.height = buttonHeight;
-    
+
     sevenButton.x = firstColumn;
     sevenButton.y = fourthRow;
     sevenButton.width = buttonWidth;
     sevenButton.height = buttonHeight;
-    
+
     eightButton.x = secondColumn;
     eightButton.y = fourthRow;
     eightButton.width = buttonWidth;
     eightButton.height = buttonHeight;
-    
+
     nineButton.x = thirdColumn;
     nineButton.y = fourthRow;
     nineButton.width = buttonWidth;
     nineButton.height = buttonHeight;
 
     numberDisplay.SetTextSize(numberDisplay.baseTextSize * widthScaleFactor);
-    
+
     zeroButton.SetTextSize(zeroButton.baseTextSize * widthScaleFactor);
     clearButton.SetTextSize(clearButton.baseTextSize * widthScaleFactor);
     equalsButton.SetTextSize(equalsButton.baseTextSize * widthScaleFactor);
@@ -241,7 +241,7 @@ function setup() {
     zeroButton = new Button(0, height - 32, 60, 32, "0");
     clearButton = new Button(60, height - 32, 60, 32, "Clear");
     equalsButton = new Button(60, height - 32, 60, 32, "=");
-    
+
     addButton = new Button(60 * 3, height - 32 - 32 * 0, 60, 32, "+");
     subtractButton = new Button(60 * 3, height - 32 - 32 * 1, 60, 32, "-");
     multiplyButton = new Button(60 * 3, height - 32 - 32 * 2, 60, 32, "×");
@@ -261,69 +261,89 @@ function setup() {
 
     Resize();
 
-    clearButton.OnClick = function() {
+    clearButton.OnClick = function () {
         Clear();
     }
 
-    equalsButton.OnClick = function() {
+    equalsButton.OnClick = function () {
         Equals();
     }
 
-    addButton.OnClick = function() {
+    addButton.OnClick = function () {
         Add();
     }
-    
-    subtractButton.OnClick = function() {
+
+    subtractButton.OnClick = function () {
         Subtract();
     }
-    
-    multiplyButton.OnClick = function() {
+
+    multiplyButton.OnClick = function () {
         Multiply();
     }
-    
-    divideButton.OnClick = function() {
+
+    divideButton.OnClick = function () {
         Divide();
     }
 
-    zeroButton.OnClick = function() {
+    zeroButton.OnClick = function () {
         AppendValue(0);
     }
 
-    oneButton.OnClick = function() {
+    oneButton.OnClick = function () {
         AppendValue(1);
     }
 
-    twoButton.OnClick = function() {
+    twoButton.OnClick = function () {
         AppendValue(2);
     }
 
-    threeButton.OnClick = function() {
+    threeButton.OnClick = function () {
         AppendValue(3);
     }
 
-    fourButton.OnClick = function() {
+    fourButton.OnClick = function () {
         AppendValue(4);
     }
 
-    fiveButton.OnClick = function() {
+    fiveButton.OnClick = function () {
         AppendValue(5);
     }
 
-    sixButton.OnClick = function() {
+    sixButton.OnClick = function () {
         AppendValue(6);
     }
 
-    sevenButton.OnClick = function() {
+    sevenButton.OnClick = function () {
         AppendValue(7);
     }
 
-    eightButton.OnClick = function() {
+    eightButton.OnClick = function () {
         AppendValue(8);
     }
 
-    nineButton.OnClick = function() {
+    nineButton.OnClick = function () {
         AppendValue(9);
     }
+}
+
+function mousePressed() {
+    if(numberDisplay.hovered) numberDisplay.OnClick();
+    if(zeroButton.hovered) zeroButton.OnClick();
+    if(clearButton.hovered) clearButton.OnClick();
+    if(equalsButton.hovered) equalsButton.OnClick();
+    if(addButton.hovered) addButton.OnClick();
+    if(subtractButton.hovered) subtractButton.OnClick();
+    if(multiplyButton.hovered) multiplyButton.OnClick();
+    if(divideButton.hovered) divideButton.OnClick();
+    if(oneButton.hovered) oneButton.OnClick();
+    if(twoButton.hovered) twoButton.OnClick();
+    if(threeButton.hovered) threeButton.OnClick();
+    if(fourButton.hovered) fourButton.OnClick();
+    if(fiveButton.hovered) fiveButton.OnClick();
+    if(sixButton.hovered) sixButton.OnClick();
+    if(sevenButton.hovered) sevenButton.OnClick();
+    if(eightButton.hovered) eightButton.OnClick();
+    if(nineButton.hovered) nineButton.OnClick();
 }
 
 function draw() {

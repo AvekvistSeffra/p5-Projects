@@ -1,0 +1,16 @@
+#sketch {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+.container header h1 {
+    margin: 0;
+    padding: 5% 0 0 0;
+}
+
+.container header p {
+    margin: 0;
+    padding: 0;
+    color: rgba(255, 255, 255, 0.5);
+}

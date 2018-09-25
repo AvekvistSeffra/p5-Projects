@@ -4,6 +4,24 @@ var tileSize;
 
 var m_Width, m_Height;
 
+var testCell, testCell2, testCell3;
+
+var cells;
+
+
+function GeneratePuzzle() {
+    cells = [];
+
+    for(var i = 0; i < 9; i++) {
+        cells[i] = [];
+        for(var j = 0; j < 9; j++) {
+            cells[i][j] = new Cell(i, j, floor(random(9)));
+            cells[i][j].SetScale(tileSize);
+            cells[i][j].baseNumber = true;
+        }
+    }
+}
+
 function setup() {
     tileSize = 48;
 
@@ -11,6 +29,7 @@ function setup() {
     m_Height = tileSize * 9;
 
     canvas = new Canvas(m_Width, m_Height + tileSize * 2);
+    GeneratePuzzle();
 }
 
 function DrawGrid() {
@@ -36,4 +55,10 @@ function DrawGrid() {
 function draw() {
     canvas.ClearScreen();
     DrawGrid();
+
+    for(var i = 0; i < 9; i++) {
+        for(var j = 0; j < 9; j++) {
+            cells[i][j].Draw();
+        }
+    }
 }

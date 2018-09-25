@@ -8,6 +8,8 @@ function Button(x, y, width, height, textData) {
     this.baseTextSize = 18;
     this.textSize = this.baseTextSize;
 
+    this.hovered = false;
+
     this.colour = 255;
     this.backgroundColour = 64;
 
@@ -32,15 +34,15 @@ function Button(x, y, width, height, textData) {
             if(mouseX < this.x + this.width && mouseY < this.y + this.height) {
                 this.backgroundColour = 48;
                 cursor(HAND);
-                if(mouseIsPressed) {
-                    this.OnClick();
-                }
+
+                this.hovered = true;
 
                 return;
             }
         }
 
         this.backgroundColour = 64;
+        this.hovered = false;
     }
 
     this.OnClick = function() {}
