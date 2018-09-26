@@ -2,28 +2,31 @@ var canvas;
 var playButton;
 var stepButton;
 var clearButton;
+var disturbanceButton;
 
 var scale;
 var m_Width, m_Height;
 
 var isPlaying;
+var isDisturbing;
 
 var cells;
 var cellsResult;
 
 function setup() {
-    scale = 16;
-    m_Width = 32 * scale;
-    m_Height = 18 * scale;
+    scale = 8;
+    m_Width = 64 * scale * 2;
+    m_Height = 36 * scale * 2;
     canvas = new Canvas(m_Width, m_Height + 48);
     canvas.SetFramerate(10);
 
-    var margin = 32;
+    var numberOfButtons = 4;
 
-    playButton = new Button(0 + margin, m_Height, 128, 48);
+    playButton = new Button(0, m_Height, m_Width / numberOfButtons, 48);
     playButton.text = "Paused";
 
     isPlaying = false;
+    isDisturbing = false;
 
     playButton.OnClick = function() {
         isPlaying = !isPlaying;
@@ -33,14 +36,14 @@ function setup() {
             playButton.text = "Playing";
     }
 
-    stepButton = new Button(160 + margin, m_Height, 128, 48);
+    stepButton = new Button(m_Width / numberOfButtons, m_Height, m_Width / numberOfButtons, 48);
     stepButton.text = "Step";
 
     stepButton.OnClick = function() {
         Update();
     }
 
-    clearButton = new Button(320 + margin, m_Height, 128, 48);
+    clearButton = new Button(m_Width / numberOfButtons * 2, m_Height, m_Width / numberOfButtons, 48);
     clearButton.text = "Clear";
 
     clearButton.OnClick = function() {
@@ -53,6 +56,18 @@ function setup() {
                 cellsResult[x][y] = false;
             }
         }
+    }
+
+    disturbanceButton = new Button(m_Width / numberOfButtons * 3, m_Height, m_Width / numberOfButtons, 48);
+    disturbanceButton.text = "Not disturbing";
+
+    disturbanceButton.OnClick = function() {
+        isDisturbing = !isDisturbing;
+
+        if(!isDisturbing)
+            disturbanceButton.text = "Is not disturbing";
+        else
+            disturbanceButton.text = "Is disturbing";
     }
 
     cells = [];
@@ -102,6 +117,8 @@ function mousePressed() {
             stepButton.OnClick();
         if(clearButton.hovered)
             clearButton.OnClick();
+        if(disturbanceButton.hovered)
+            disturbanceButton.OnClick();
     }
 }
 
@@ -170,11 +187,24 @@ function draw() {
     playButton.Draw();
     stepButton.Draw();
     clearButton.Draw();
+    disturbanceButton.Draw();
 
     DrawGrid();
 
-    if(isPlaying)
+    if(isPlaying) {
         Update();
+        
+        var xOffset = 0;
+
+        if(isDisturbing) {
+            for(var x = m_Width / scale - 1; x >= 0; x--) {
+                for(var y = m_Height / scale - 1; y >= 0; y--) {
+                    cells[x][y] = noise(x + xOffset) > random(0.8, 0.9) ? true : cells[x][y];
+                    xOffset += 0.02;
+                }
+            }
+        }
+    }
 
     fill(80);
     for(var x = m_Width / scale - 1; x >= 0; x--) {
