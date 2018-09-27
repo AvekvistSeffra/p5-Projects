@@ -6,6 +6,34 @@ var m_Width, m_Height;
 
 var boardPieces;
 
+var blackRookImage;
+var whiteRookImage;
+var blackPawnImage;
+var whitePawnImage;
+var blackQueenImage;
+var whiteQueenImage;
+var blackKingImage;
+var whiteKingImage;
+var blackKnightImage;
+var whiteKnightImage;
+var blackBishopImage;
+var whiteBishopImage;
+
+function preload() {
+    blackRookImage = loadImage('assets/black_rook.png');
+    whiteRookImage = loadImage('assets/white_rook.png');
+    blackPawnImage = loadImage('assets/black_pawn.png');
+    whitePawnImage = loadImage('assets/white_pawn.png');
+    blackQueenImage = loadImage('assets/black_queen.png');
+    whiteQueenImage = loadImage('assets/white_queen.png');
+    blackKingImage = loadImage('assets/black_king.png');
+    whiteKingImage = loadImage('assets/white_king.png');
+    blackKnightImage = loadImage('assets/black_knight.png');
+    whiteKnightImage = loadImage('assets/white_knight.png');
+    blackBishopImage = loadImage('assets/black_bishop.png');
+    whiteBishopImage = loadImage('assets/white_bishop.png');
+}
+
 function setup() {
     tileSize = 48;
 

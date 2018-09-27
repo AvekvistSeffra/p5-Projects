@@ -8,6 +8,24 @@ var testCell, testCell2, testCell3;
 
 var cells;
 
+function ValidateNonet() {
+    
+}
+
+function ValidateRow() {
+
+}
+
+function ValidateColumn() {
+
+}
+
+function Validate() {
+    ValidateNonet();
+    ValidateRow();
+    ValidateColumn();
+}
+
 function GeneratePuzzle() {
     cells = [];
 
@@ -19,6 +37,8 @@ function GeneratePuzzle() {
             cells[i][j].baseNumber = true;
         }
     }
+
+    Validate();
 }
 
 function setup() {

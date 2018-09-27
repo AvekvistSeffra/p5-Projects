@@ -1,8 +1,9 @@
-function Piece(x, y, type, colour) {
+function Piece(x, y, type, colour, sprite) {
     this.x = x;
     this.y = y;
     this.type = type;
     this.colour = colour;
+    this.sprite = sprite;
 
     this.CheckViableMoves = function() {}
     this.DrawViableMoves = function() {}
@@ -15,5 +16,9 @@ function Piece(x, y, type, colour) {
                 this.y = y;
             }
         }
+    }
+
+    this.Draw = function() {
+        
     }
 }
